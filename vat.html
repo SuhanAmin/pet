@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            background: linear-gradient(-45deg, #fdedd7, #febfa9, #c4d8d8, #a6e3e9);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite ease-in-out;
+            min-height: 100vh; 
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .floating-bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatUp  infinite linear;
+            z-index: -10;
+        }
+
+        @keyframes floatUp {
+            0% { 
+             
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-50px);
+                opacity: 1; 
+            }
+        }
+        .footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+        background-color: rgb(88, 87, 87);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 10; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .footer button{
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .footer button:hover{
+       text-shadow: 0px 0px 10px rgb(0, 255, 80);
+        color:rgb(0, 255, 80);
+      }
+      header {
+            background:rgb(88, 87, 87);
+           
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 20%;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+        }
+        header h1{
+            margin-top:25px ;
+            text-shadow: 5px 5px 30px goldenrod;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        .logo{
+            height: 80%;
+            width: 8%;
+            position: absolute;
+            background-image: url('logo1.jpg');
+            background-position: center;
+            background-size: cover;
+            left: 62%;
+            top:10%;
+           
+            border-radius: 50%;
+        }
+        .menu{
+            height:40%;
+            width:5%;
+            position: absolute;
+            left:0%;
+            top:25%;
+            border: none;
+            color: white;
+            font-size: 50px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .menu:hover{
+            color:rgb(0, 254, 80);
+        }
+        .profile-panel {
+            position: fixed;
+            top: 0;
+            left: -35%;
+            width: 30%;
+            height: 100%;
+            background-color: rgb(88, 87, 87);
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s ease-in-out;
+            z-index: 1001;
+        }
+
+        .profile-panel .close-btn {
+            align-self: flex-end;
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .profile-panel .close-btn:hover {
+            background-color: #e64a19;
+        }
+       
+        .active{
+            text-shadow: 0px 0px 20px rgb(1, 246, 79);
+          
+        }
+       
+        .dr{
+            width:80%;
+            height:20vh;
+           position:absolute;
+           top:20%;
+           left:10%;
+          display: flex;
+         justify-content:center;
+        
+          align-items: center;
+          gap:20px;
+           border:2px solid red;
+        }
+        .dr1{
+            width:12%;
+            height:80%;
+            border-radius: 50%;
+            position: absolute;
+            border: 2px solid black;
+            top:10%;
+            left:7%
+        }
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="floating-bubbles"></div>
+    <header>
+        <button class="menu"><i class="fas fa-bars"></i></button>
+        <h1>PET PALACE</h1>
+        <div class="logo"></div>
+    </header>
+    <div class="profile-panel" id="profile-panel">
+        <button class="close-btn" onclick="closeProfilePanel()">X</button>
+       <input type="button"value="Profile">
+       <input type="button"value="My Pets">
+       <input type="button"value="Donation">
+     
+       <input type="button"value="Logout">
+    </div>
+    <div class="dr">
+        <div class="dr1">
+
+        </div>
+        <h1>Dr.Karthik</h1>
+        <h2>Gante Puche Hospital</h2>
+        <h4>Mangalore</h4>
+       
+    </div>
+    
+    <div class="footer">
+        <button class="btn " id="home"><i class="fa fa-home"></i><br>HOME</button>
+        <button class="btn active" id="vat"><i class="fa fa-first-aid"></i><br> VATERNERY</button>
+        <button class="btn " id="accessories"><i class="fa fa-box"></i> <br>ACCESSORIES</button>
+    </div>
+    <script>
+        function createBubbles() {
+            const container = document.querySelector('.floating-bubbles');
+            const pageHeight = document.body.scrollHeight;
+            for (let i = 0; i < 20; i++) {
+                let bubble = document.createElement("div");
+                bubble.classList.add("bubble");
+                let size = Math.random() * 40 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`; 
+                bubble.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+                bubble.style.transform = `translateY(${pageHeight}px)`;
+                container.appendChild(bubble);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", createBubbles);
+        document.querySelector('.menu').addEventListener('click', () => {
+            document.getElementById('profile-panel').style.left = '0'; 
+        });
+
+       
+        function closeProfilePanel() {
+            document.getElementById('profile-panel').style.left = '-40%';
+        }
+         document.addEventListener("DOMContentLoaded",()=>{
+        const buttons=document.querySelectorAll('.btn');
+        buttons.forEach(buttn=>{
+        buttn.addEventListener('click',()=>{
+
+            buttons.forEach(bt=>
+            bt.classList.remove("active"));
+            buttn.classList.add("active")
+           
+        });
+    });
+});
+document.getElementById('home').addEventListener('click',()=>{
+    window.location.href="pass.html"
+})
+document.getElementById('vat').addEventListener('click',()=>{
+    window.location.href="vat.html"
+})
+document.getElementById('accessories').addEventListener('click',()=>{
+    window.location.href="acc.html"
+})
+        </script>
+</body>
+</html>
