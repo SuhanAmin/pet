@@ -121,7 +121,7 @@
             gap: 20px;
             padding: 100px 20px 20px 20px;
             justify-items: center;
-            margin-top: 10%;
+           
             position: relative;
             margin-top: 15%;
             
@@ -222,6 +222,7 @@
             background-color: #FF5722;
             color: white;
             border: none;
+            width:8%;
             padding: 10px;
             border-radius: 50%;
             cursor: pointer;
@@ -237,6 +238,57 @@
             text-shadow: 0px 0px 20px rgb(1, 246, 79);
           
         }
+        .container1{
+                height:100vh;
+                width:100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap:5rem;
+               margin-top:5%;
+
+            }
+            .btn1{
+                position: relative;
+                border:none;
+                border-radius: 40px;
+                padding:15px;
+                color:rgb(255, 255, 255);
+                background-color: transparent;
+                font-weight: 600;
+                font-size: 30px;
+                cursor:pointer;
+                transition: 1s;
+                width:85%;
+                overflow: hidden;
+                z-index: 2;
+                
+            }
+            .btn1::after{
+                content:'';
+                position: absolute;
+                top:0;
+                left:0;
+                height:100%;
+                width:100%;
+                background-color: white;
+                clip-path: circle(0% at 50% 50%);
+                transition: 1s;
+                z-index:-1;
+            }
+            .btn1:hover::after{
+                clip-path: circle(100% at 50% 50%);
+            }
+            .btn1:hover{
+                color:black;
+                box-shadow: 0 0 10px white,
+                0 0 50px white;
+                
+            }
+            .container1 i{
+                margin-left: 40px;
+            }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -248,12 +300,14 @@
     </header>
     <div class="floating-bubbles"></div>
     <div class="profile-panel" id="profile-panel">
-        <button class="close-btn" onclick="closeProfilePanel()">X</button>
-       <input type="button"value="Profile">
-       <input type="button"value="My Pets">
-       <input type="button"value="Donation">
-     
-       <input type="button"value="Logout">
+        <button class="close-btn" onclick="closeProfilePanel()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="container1">
+            <button class="btn1">PROFILE<i class="fa fa-user"></i></button>
+            <button class="btn1">MY PETS<i class="fa fa-cat"></i></button>
+            <button class="btn1">DONATE<i class="fa fa-coins"></i></button>
+            <button class="btn1">ABOUT US<i class="fa fa-file-text"></i></button>
+            <button class="btn1">LOGOUT <i class="fas fa-sign-out-alt"></i></button>
+        </div>
     </div>
    
   

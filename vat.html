@@ -18,7 +18,7 @@
             background: linear-gradient(-45deg, #fdedd7, #febfa9, #c4d8d8, #a6e3e9);
             background-size: 400% 400%;
             animation: gradientAnimation 15s infinite ease-in-out;
-            min-height: 100vh; 
+            min-height: 90vh; 
             overflow-x: hidden;
         }
 
@@ -85,7 +85,7 @@
       }
       header {
             background:rgb(88, 87, 87);
-           
+          
             padding: 20px;
             position: fixed;
             top: 0;
@@ -161,6 +161,7 @@
             color: white;
             border: none;
             padding: 10px;
+            width:8%;
             border-radius: 50%;
             cursor: pointer;
         }
@@ -174,28 +175,94 @@
           
         }
        
-        .dr{
-            width:80%;
-            height:20vh;
-           position:absolute;
-           top:20%;
-           left:10%;
-          display: flex;
-         justify-content:center;
-        
-          align-items: center;
-          gap:20px;
-           border:2px solid red;
-        }
         .dr1{
-            width:12%;
-            height:80%;
-            border-radius: 50%;
-            position: absolute;
-            border: 2px solid black;
-            top:10%;
-            left:7%
+            display: flex;
+            flex-direction: column;
+        
+            gap: 20px;
+            padding: 100px 20px 20px 20px;
+        
+          
+            position: relative;
+        
+           margin-top: 5%;
+            z-index: 5; 
         }
+        .dr  {
+          
+            background-color:white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           display: flex;
+           justify-content: space-evenly;
+           align-items: center;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+            padding: 5%;
+            border:2px solid green;;
+            height: 50%;
+          
+        }
+        .drimage img{
+            width:15vw;
+            height:30vh;
+           border-radius: 50%;
+           background-position: center;
+           background-size: cover;
+           
+            border:2px solid black;
+        }
+        .container1{
+                height:100vh;
+                width:100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap:5rem;
+               margin-top:5%;
+
+            }
+            .btn1{
+                position: relative;
+                border:none;
+                border-radius: 40px;
+                padding:15px;
+                color:rgb(255, 255, 255);
+                background-color: transparent;
+                font-weight: 600;
+                font-size: 30px;
+                cursor:pointer;
+                transition: 1s;
+                width:85%;
+                overflow: hidden;
+                z-index: 2;
+                
+            }
+            .btn1::after{
+                content:'';
+                position: absolute;
+                top:0;
+                left:0;
+                height:100%;
+                width:100%;
+                background-color: white;
+                clip-path: circle(0% at 50% 50%);
+                transition: 1s;
+                z-index:-1;
+            }
+            .btn1:hover::after{
+                clip-path: circle(100% at 50% 50%);
+            }
+            .btn1:hover{
+                color:black;
+                box-shadow: 0 0 10px white,
+                0 0 50px white;
+                
+            }
+            .container1 i{
+                margin-left: 40px;
+            }
     </style>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -207,20 +274,87 @@
         <div class="logo"></div>
     </header>
     <div class="profile-panel" id="profile-panel">
-        <button class="close-btn" onclick="closeProfilePanel()">X</button>
-       <input type="button"value="Profile">
-       <input type="button"value="My Pets">
-       <input type="button"value="Donation">
-     
-       <input type="button"value="Logout">
-    </div>
-    <div class="dr">
-        <div class="dr1">
-
+        <button class="close-btn" onclick="closeProfilePanel()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="container1">
+            <button class="btn1">PROFILE<i class="fa fa-user"></i></button>
+            <button class="btn1">MY PETS<i class="fa fa-cat"></i></button>
+            <button class="btn1">DONATE<i class="fa fa-coins"></i></button>
+            <button class="btn1">ABOUT US<i class="fa fa-file-text"></i></button>
+            <button class="btn1">LOGOUT <i class="fas fa-sign-out-alt"></i></button>
         </div>
-        <h1>Dr.Karthik</h1>
-        <h2>Gante Puche Hospital</h2>
-        <h4>Mangalore</h4>
+       
+
+     
+       
+    </div>
+    <div class="dr1">
+        <div class="dr">
+            <div class="drimage">
+                <img src="karthi.jpg" alt="">
+            </div>
+            <div class="drname">
+                <h1>Dr.Karthik</h1>
+            </div>
+            <div class="drcity">
+                
+            <h2>Gante Puche Hospital</h2>
+            <h4>Mangalore</h4>
+            </div>
+            <a href="">More Deatails</a>
+          
+        </div>
+       
+           
+          
+       
+        <div class="dr">
+            <div class="drimage">
+                <img src="ugre.jpg" alt="">
+            </div>
+            <div class="drname">
+                <h1>Dr.Ugre</h1>
+            </div>
+            <div class="drcity">
+                
+            <h2>Kaat Nai Hospital</h2>
+            <h4>Mangalore</h4>
+            </div>
+            <a href="">More Deatails</a>
+          
+        </div>
+        <div class="dr">
+            <div class="drimage">
+                <img src="dharme.jpg" alt="">
+            </div>
+            <div class="drname">
+                <h1>Dr.Dharme</h1>
+            </div>
+            <div class="drcity">
+                
+            <h2>Bogi-Bogra Hospital</h2>
+            <h4>Mangalore</h4>
+            
+            </div>
+            <a href="">More Deatails</a>
+          
+        </div>
+        <div class="dr">
+            <div class="drimage">
+                <img src="suharsh.jpg" alt="">
+            </div>
+            <div class="drname">
+                <h1>Dr.Suharsh</h1>
+            </div>
+            <div class="drcity">
+                
+            <h2>Chandi Kori Hospital</h2>
+            <h4>Mangalore</h4>
+            </div>
+            <a href="">More Deatails</a>
+          
+        </div>
+      
+        
        
     </div>
     
